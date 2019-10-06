@@ -8,9 +8,9 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 fun getModules(context: Context) = listOf(
-        getPreferenceModule(context),
-        getDatabaseModule(context),
-        getViewModelModule()
+    getPreferenceModule(context),
+    getDatabaseModule(context),
+    getViewModelModule()
 )
 
 fun getPreferenceModule(context: Context): Module {
@@ -23,6 +23,8 @@ fun getDatabaseModule(context: Context): Module {
     return module {
         single { AppDatabase.newInstance(context) }
         single { get<AppDatabase>().getUserDao() }
+        single { get<AppDatabase>().getWalletDao() }
+        single { get<AppDatabase>().getTransactionDao() }
     }
 }
 
