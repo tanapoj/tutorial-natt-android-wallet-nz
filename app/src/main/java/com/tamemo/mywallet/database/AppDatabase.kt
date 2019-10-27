@@ -16,7 +16,7 @@ import com.tamemo.mywallet.database.entities.WalletEntity
         UserEntity::class,
         WalletEntity::class,
         TransactionEntity::class
-    ], version = 1
+    ], version = 3
 )
 abstract class AppDatabase : RoomDatabase() {
 

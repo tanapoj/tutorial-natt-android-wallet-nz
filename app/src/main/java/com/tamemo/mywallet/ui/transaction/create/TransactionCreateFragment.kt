@@ -1,4 +1,4 @@
-package com.tamemo.mywallet.ui.main
+package com.tamemo.mywallet.ui.transaction.create
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,12 +9,12 @@ import com.tamemo.mywallet.R
 import com.tamemo.mywallet.ui.BaseFragment
 import kotlinx.android.synthetic.main.fragment_main.*
 
-class MainFragment(private val viewModel: MainViewModel) : BaseFragment() {
+class TransactionCreateFragment(private val viewModel: TransactionCreateViewModel) : BaseFragment() {
 
     private lateinit var rootView: View
 
     companion object {
-        fun newInstance(viewModel: MainViewModel): MainFragment = MainFragment(viewModel).apply {
+        fun newInstance(viewModel: TransactionCreateViewModel): TransactionCreateFragment = TransactionCreateFragment(viewModel).apply {
             arguments = Bundle()
         }
     }
@@ -30,11 +30,11 @@ class MainFragment(private val viewModel: MainViewModel) : BaseFragment() {
         return rootView
     }
 
-    private fun initBindEvent(){
+    private fun initBindEvent() {
 
     }
 
-    private fun initObserver(){
+    private fun initObserver() {
         viewModel.test.observe(this, Observer {
             tvTest.text = it
         })

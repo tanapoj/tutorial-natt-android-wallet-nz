@@ -1,4 +1,4 @@
-package com.tamemo.mywallet.ui.main
+package com.tamemo.mywallet.ui.transaction.create
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,13 +7,13 @@ import com.tamemo.mywallet.ui.BaseActivity
 import com.tamemo.mywallet.ui.dashboard.DashboardActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : BaseActivity() {
+class TransactionCreateActivity : BaseActivity() {
 
-    private val fragment: MainFragment by lazy {
-        MainFragment.newInstance(viewModel)
+    private val fragment: TransactionCreateFragment by lazy {
+        TransactionCreateFragment.newInstance(viewModel)
     }
 
-    private val viewModel: MainViewModel by viewModel()
+    private val viewModel: TransactionCreateViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

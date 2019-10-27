@@ -1,16 +1,21 @@
 package com.tamemo.mywallet.di
 
 import android.content.Context
+import com.tamemo.mywallet.common.Scheduler
 import com.tamemo.mywallet.database.AppDatabase
 import com.tamemo.mywallet.preference.UserPreference
+import com.tamemo.mywallet.repository.WalletRepository
+import com.tamemo.mywallet.ui.dashboard.DashboardViewModel
 import com.tamemo.mywallet.ui.main.MainViewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
 fun getModules(context: Context) = listOf(
-    getPreferenceModule(context),
-    getDatabaseModule(context),
-    getViewModelModule()
+        getPreferenceModule(context),
+        getDatabaseModule(context),
+        getViewModelModule(),
+        getRepositoryModule(),
+        getCommonModule()
 )
 
 fun getPreferenceModule(context: Context): Module {
@@ -30,6 +35,19 @@ fun getDatabaseModule(context: Context): Module {
 
 fun getViewModelModule(): Module {
     return module {
-        single { MainViewModel() }
+        single { MainViewModel(get()) }
+        single { DashboardViewModel(get()) }
+    }
+}
+
+fun getRepositoryModule(): Module {
+    return module {
+        single { WalletRepository(get(), get(), get(), get(), get()) }
+    }
+}
+
+fun getCommonModule(): Module {
+    return module {
+        single { Scheduler() }
     }
 }

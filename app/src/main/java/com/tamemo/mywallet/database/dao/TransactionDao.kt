@@ -14,6 +14,9 @@ interface TransactionDao {
     @Query("SELECT * FROM wallet_transaction WHERE wallet_id = :walletId")
     fun getTransactions(walletId: Int): List<TransactionEntity>
 
+    @Query("SELECT * FROM wallet_transaction WHERE wallet_id IN (:walletIds)")
+    fun getTransactions(walletIds: List<Int>): List<TransactionEntity>
+
     @Query("SELECT * FROM wallet_transaction WHERE wallet_id = :walletId AND (:from <= issue_at AND issue_at <= :to)")
     fun getTransactions(walletId: Int, from: Int, to: Int): List<TransactionEntity>
 

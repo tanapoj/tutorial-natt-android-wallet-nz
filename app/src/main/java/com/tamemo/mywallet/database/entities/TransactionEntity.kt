@@ -8,9 +8,9 @@ import com.tamemo.mywallet.model.Category
 
 @Entity(tableName = "wallet_transaction")
 data class TransactionEntity(
-    @PrimaryKey(autoGenerate = true) var id: Int? = null,
+    @PrimaryKey(autoGenerate = true) var id: Int = 0,
     @ColumnInfo(name = "wallet_id") var walletId: Int = 0,
-    @ColumnInfo(name = "amount") var amount: Int = 0,
+    @ColumnInfo(name = "amount") var amount: Double = .0,
     @Embedded var category: Category,
     @ColumnInfo(name = "issue_at") var issueAt: Int = 0
 )

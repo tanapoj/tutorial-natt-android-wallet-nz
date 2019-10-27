@@ -1,7 +1,9 @@
 package com.tamemo.mywallet.model
 
-data class Category (
-    val id: Int,
-    val main: String,
-    val sub: String
+import androidx.room.ColumnInfo
+
+data class Category(
+        @ColumnInfo(name = "category_id") val id: Int,
+        @ColumnInfo(name = "category_main") val main: String,
+        @ColumnInfo(name = "category_sub") val sub: String
 )

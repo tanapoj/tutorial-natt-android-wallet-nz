@@ -1,4 +1,4 @@
-package com.tamemo.mywallet.ui.main
+package com.tamemo.mywallet.ui.transaction.create
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +11,7 @@ import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class MainViewModel(
+class TransactionCreateViewModel(
         private val userDao: UserDao
 ) : BaseViewModel() {
 
